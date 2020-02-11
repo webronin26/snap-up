@@ -16,9 +16,10 @@ func main() {
 	// 初始化資料庫
 	store.Init()
 	// 初始化 route 需要的資源
+	// 這邊先輸入 id = 1 的商品當作 sample
 	presenter.InitSnapUp(1)
 
 	e := echo.New()
-	e.GET("/snap", presenter.SnapUp)
+	e.POST("/snap", presenter.SnapUp)
 	e.Logger.Fatal(e.Start(":1323"))
 }
